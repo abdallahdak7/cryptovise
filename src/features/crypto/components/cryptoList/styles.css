@@ -1,0 +1,28 @@
+table {
+  text-align: center;
+  border-collapse: collapse;
+  border-radius: 3px;
+}
+
+td,
+th {
+  padding: 20px;
+}
+
+tbody > tr:hover {
+  background-color: var(--table-cell-hover);
+}
+
+thead > tr {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+td,
+th {
+  white-space: nowrap;
+}
+
+.table-container {
+  overflow-x: auto;
+}

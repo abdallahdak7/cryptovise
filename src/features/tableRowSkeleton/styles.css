@@ -1,0 +1,18 @@
+.skeleton-cell {
+  height: 25px;
+  background-color: var(--theme-color-2);
+  animation: pulse 1.5s ease-in-out infinite;
+  border-radius: 5px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
