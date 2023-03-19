@@ -20,31 +20,34 @@ const CryptoList: React.FC<CryptoListProps> = () => {
 
   const sortArray = (column?: string) => {
     if (column == 'name') {
-      setData((state) =>
-        state.slice().sort((a, b) => a.name.localeCompare(b.name))
+      setData((state: any) =>
+        state.slice().sort((a: any, b: any) => a.name.localeCompare(b.name))
       );
     }
 
     if (column == 'volume') {
-      setData((state) =>
+      setData((state: any) =>
         state
           .slice()
-          .sort((a, b) => b.market_cap_change_24h - a.market_cap_change_24h)
+          .sort(
+            (a: any, b: any) =>
+              b.market_cap_change_24h - a.market_cap_change_24h
+          )
       );
     }
 
     if (column == 'marketcap') {
-      setData((state) =>
-        state.slice().sort((a, b) => b.market_cap - a.market_cap)
+      setData((state: any) =>
+        state.slice().sort((a: any, b: any) => b.market_cap - a.market_cap)
       );
     }
 
     if (column == 'last24') {
-      setData((state) =>
+      setData((state: any) =>
         state
           .slice()
           .sort(
-            (a, b) =>
+            (a: any, b: any) =>
               b.price_change_percentage_24h - a.price_change_percentage_24h
           )
       );
