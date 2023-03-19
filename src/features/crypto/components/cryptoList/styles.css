@@ -2,6 +2,7 @@ table {
   text-align: center;
   border-collapse: collapse;
   border-radius: 3px;
+  table-layout: fixed;
 }
 
 td,
@@ -40,5 +41,11 @@ th {
 }
 
 .table-container {
+  overflow-x: auto;
+}
+
+.crypto-list-container {
+  display: flex;
+  justify-content: center;
   overflow-x: auto;
 }

@@ -6,6 +6,7 @@ import { useQuery, useQueryClient } from 'react-query';
 import { CryptoListProps } from './types';
 import CryptoView from '../cryptoView';
 import FiltersGroup from '../filtersGroup';
+import Search from '../search';
 import TableRowSkeleton from '../../../tableRowSkeleton';
 import { getCryptos } from '../../../../common/axios';
 import { mockData } from './consts';
@@ -58,6 +59,17 @@ const CryptoList: React.FC<CryptoListProps> = () => {
     }
   };
 
+  const onSearch = (keyword: string) => {
+    console.log(keyword);
+    const cryptos = state
+      .slice()
+      .filter((x: any) => x.id.slice('').includes(keyword));
+
+    if (cryptos.length > 0 && keyword) {
+      setData(cryptos);
+    } else setData(data);
+  };
+
   useEffect(() => {
     setData(data);
   }, [data]);
@@ -65,7 +77,7 @@ const CryptoList: React.FC<CryptoListProps> = () => {
   return (
     <div className={'table-container'}>
       <FiltersGroup sortArray={sortArray} />
-
+      <Search onChange={onSearch} />
       <table>
         <thead>
           <tr>

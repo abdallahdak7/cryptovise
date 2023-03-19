@@ -76,3 +76,7 @@ a {
     padding: 10px;
   }
 }
+
+::placeholder {
+  color: var(--theme-color-4);
+}

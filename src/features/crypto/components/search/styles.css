@@ -1,0 +1,13 @@
+input[type='search'] {
+  background: transparent;
+  width: 100%;
+  outline: none;
+  flex: 1;
+  border: 0;
+  font-size: 20px;
+  border-bottom: 1px solid var(--theme-color-4);
+  padding: 10px;
+  margin-bottom: 20px;
+  color: var(--theme-color-4);
+  font-size: 0.8rem;
+}
