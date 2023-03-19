@@ -52,8 +52,10 @@
   color: white;
 }
 
-.checkbox-label:hover {
-  color: white;
-  cursor: pointer;
-  opacity: 0.5;
+@media screen and (min-width: 1024px) {
+  .checkbox-label:hover {
+    color: white;
+    cursor: pointer;
+    opacity: 0.5;
+  }
 }

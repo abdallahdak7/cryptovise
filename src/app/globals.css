@@ -13,7 +13,7 @@
   --theme-color-1: #cbe4de;
   --down-color: #ea3943;
   --up-color: #0e8388;
-  --table-cell-hover: rgba(169, 215, 204, 0.4);
+  --table-cell-hover: rgba(169, 215, 204, 0.3);
   background-color: var(--theme-color-1);
 }
 
@@ -36,6 +36,10 @@ body {
 
 body {
   font-family: 'Raleway', sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* Utility classes */
