@@ -7,7 +7,7 @@ const Search: React.FC<SearchProps> = ({ onChange }) => {
     <div className='search-container'>
       <input
         type='text'
-        onChange={(e) => onChange(e.target.value)}
+        onInput={(e) => onChange(e.currentTarget.value)}
         placeholder='Search'
       />
       <div className='search-bottom-border'></div>
