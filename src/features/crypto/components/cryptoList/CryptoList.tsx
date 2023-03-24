@@ -63,7 +63,7 @@ const CryptoList: React.FC<CryptoListProps> = () => {
     console.log(keyword);
     const cryptos = state
       .slice()
-      .filter((x: any) => x.id.slice('').includes(keyword));
+      .filter((x: any) => x.id.slice('').includes(keyword.toLowerCase()));
 
     if (cryptos.length > 0 && keyword) {
       setData(cryptos);
