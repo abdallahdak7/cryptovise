@@ -3,15 +3,17 @@ import './styles.css';
 import { FiltersGroupProps } from './types';
 import { useState } from 'react';
 
-const FiltersGroup: React.FC<FiltersGroupProps> = ({ sortArray }) => {
-  const [checkedCheckbox, setCheckedCheckbox] = useState(null);
-
+const FiltersGroup: React.FC<FiltersGroupProps> = ({
+  sortArray,
+  checkedCheckbox,
+  setCheckBox,
+}) => {
   const handleCheckboxChange = (event: any) => {
     const { name, checked } = event.target;
 
     if (checked) {
       // Check newly clicked checkbox
-      setCheckedCheckbox(name);
+      setCheckBox(name);
 
       // Call the appropriate function based on the checkbox name
       switch (name) {
@@ -32,7 +34,7 @@ const FiltersGroup: React.FC<FiltersGroupProps> = ({ sortArray }) => {
       }
     } else {
       // Uncheck currently checked checkbox
-      setCheckedCheckbox(null);
+      setCheckBox('');
 
       // Revert to original data
       sortArray();

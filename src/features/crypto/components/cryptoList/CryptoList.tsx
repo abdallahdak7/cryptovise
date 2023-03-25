@@ -17,7 +17,9 @@ const CryptoList: React.FC<CryptoListProps> = () => {
   // Queries
   let { data } = useQuery('getCryptos', getCryptos);
 
+  const [input, setInput] = useState('');
   const [state, setData] = useState(data);
+  const [checkedCheckbox, setCheckedCheckbox] = useState('');
 
   const sortArray = (column?: string) => {
     if (column == 'name') {
@@ -55,15 +57,25 @@ const CryptoList: React.FC<CryptoListProps> = () => {
     }
 
     if (!column) {
-      setData(data);
+      if (!input) setData(data);
+      else
+        setData((state: any) =>
+          state.slice().sort((a: any, b: any) => b.market_cap - a.market_cap)
+        );
     }
   };
 
   const onSearch = (keyword: string) => {
-    console.log(keyword);
+    setSearchInput(keyword);
+    if (checkedCheckbox) setCheckBox('');
+
     const cryptos = state
       .slice()
-      .filter((x: any) => x.id.slice('').includes(keyword.toLowerCase()));
+      .filter(
+        (x: any) =>
+          x.id.slice('').includes(keyword.toLowerCase()) ||
+          x.symbol.slice('').includes(keyword.toLowerCase())
+      );
 
     if (cryptos.length > 0 && keyword) {
       setData(cryptos);
@@ -74,10 +86,22 @@ const CryptoList: React.FC<CryptoListProps> = () => {
     setData(data);
   }, [data]);
 
+  const setCheckBox = (name: string) => {
+    setCheckedCheckbox(name);
+  };
+
+  const setSearchInput = (term: string) => {
+    setInput(term);
+  };
+
   return (
     <div className={'table-container'}>
-      <FiltersGroup sortArray={sortArray} />
-      <Search onChange={onSearch} />
+      <FiltersGroup
+        sortArray={sortArray}
+        setCheckBox={setCheckBox}
+        checkedCheckbox={checkedCheckbox}
+      />
+      <Search onChange={onSearch} input={input} />
       <table>
         <thead>
           <tr>
