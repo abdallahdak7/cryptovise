@@ -6,15 +6,14 @@ import { ThemeSwitchProps } from './types';
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = ({ theme, toggleTheme }) => {
   return (
-    <div className='dark-mode-switch'>
+    <label className='switch'>
       <input
         type='checkbox'
-        id='dark-mode-toggle'
         checked={theme == 'dark' ? true : false}
         onChange={toggleTheme}
       />
-      <label className='switch-label' htmlFor='dark-mode-toggle'></label>
-    </div>
+      <span className='slider round'></span>
+    </label>
   );
 };
 
