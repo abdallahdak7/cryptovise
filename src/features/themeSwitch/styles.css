@@ -13,23 +13,6 @@
   visibility: hidden;
 }
 
-#dark-mode-toggle {
-  -webkit-appearance: none !important;
-  -moz-appearance: none !important;
-  appearance: none !important;
-  background-color: transparent !important;
-  border: none !important;
-  outline: none !important;
-}
-
-#dark-mode-toggle:active {
-  outline: none !important;
-}
-
-#dark-mode-toggle:checked {
-  background-color: transparent !important;
-}
-
 .switch-label {
   cursor: pointer;
   width: 60px;
